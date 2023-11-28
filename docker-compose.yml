@@ -1,0 +1,19 @@
+version: '3'
+services:
+  tensorflow:
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_TOKEN=your_custom_token  # 여기서 토큰을 설정합니다.
+      - JUPYTER_PASSWORD=hashed_password  # 또는 해시된 패스워드를 사용합니다.
+    volumes:
+      - ./:/tf/aiffel
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:  # deploy 섹션에 GPU 사용 설정 추가
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]  
