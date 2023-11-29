@@ -4,10 +4,11 @@ services:
     ports:
       - "8888:8888"
     environment:
-      - JUPYTER_TOKEN=your_custom_token  # 여기서 토큰을 설정합니다.
-      - JUPYTER_PASSWORD=hashed_password  # 또는 해시된 패스워드를 사용합니다.
+      - GRANT_SUDO=yes
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=1111
     volumes:
-      - ./:/tf/aiffel
+      - ../:/tf/aiffel
     build:
       context: .
       dockerfile: Dockerfile
@@ -16,4 +17,5 @@ services:
         reservations:
           devices:
           - driver: nvidia
-            capabilities: [gpu]  
+            capabilities: [gpu]
+
