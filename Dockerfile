@@ -54,3 +54,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN npm i @krassowski/jupyterlab-lsp
+RUN pip install nltk
