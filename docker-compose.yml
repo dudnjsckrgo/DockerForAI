@@ -2,6 +2,8 @@ version: '3'
 services:
   tensorflow:
     restart: always
+    storage_opt:
+      size: '100G'
     ports:
       - "12345:8888"
     environment:
