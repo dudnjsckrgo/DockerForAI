@@ -1,12 +1,14 @@
 version: '3'
 services:
   tensorflow:
+    restart: always
     ports:
-      - "8888:8888"
+      - "12345:8888"
     environment:
       - GRANT_SUDO=yes
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_TOKEN=1111
+      - CUDA_VIsible_DEVICES=0
     volumes:
       - ../:/tf/aiffel
     build:
