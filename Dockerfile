@@ -43,17 +43,20 @@ RUN cd /workspace && \
 RUN pip install opencv-python
 
 RUN apt install -y graphviz
-RUN pip install jupyterlab_nvdashboard
 
 RUN pip install aquirdturtle_collapsible_headings
-RUN pip install lckr-jupyterlab-variableinspector
 # 이후의 Dockerfile 지시사항들...
-RUN apt-get update && \
-    apt-get install -y nodejs npm && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update 
+RUN apt-get install -y nodejs npm 
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN pip install nltk
+RUN pip install --upgrade notebook
+RUN pip install --upgrade jupyter-lsp
 
+# RUN  pip install -U "jupyter-server<2.0.0"
+# RUN pip install lckr-jupyterlab-variableinspector
+#RUN pip install jupyterlab_nvdashboard
 # RUN pip install jupyterlab-lsp
 # RUN pip install python-lsp-server[all]
 # RUN npm i @krassowski/jupyterlab-lsp
