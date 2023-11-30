@@ -2,7 +2,7 @@ version: '3'
 services:
   tensorflow:
     ports:
-      - "8888:8888"
+      - "23456:8888"
     environment:
       - GRANT_SUDO=yes
       - JUPYTER_ENABLE_LAB=yes
