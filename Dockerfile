@@ -44,8 +44,7 @@ RUN pip install opencv-python
 
 RUN apt install -y graphviz
 RUN pip install jupyterlab_nvdashboard
-RUN pip install jupyterlab-lsp
-RUN pip install python-lsp-server[all]
+
 RUN pip install aquirdturtle_collapsible_headings
 RUN pip install lckr-jupyterlab-variableinspector
 # 이후의 Dockerfile 지시사항들...
@@ -53,5 +52,8 @@ RUN apt-get update && \
     apt-get install -y nodejs npm && \
     rm -rf /var/lib/apt/lists/*
 
-RUN npm i @krassowski/jupyterlab-lsp
 RUN pip install nltk
+
+# RUN pip install jupyterlab-lsp
+# RUN pip install python-lsp-server[all]
+# RUN npm i @krassowski/jupyterlab-lsp
