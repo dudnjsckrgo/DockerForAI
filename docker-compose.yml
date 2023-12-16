@@ -2,15 +2,16 @@ version: '3'
 services:
   tensorflow:
     restart: always
-    storage_opt:
-      size: '100G'
+    runtime: nvidia
     ports:
-      - "12345:8888"
+      - "8889:8888"
+      - "12346:12346"
     environment:
-      - GRANT_SUDO=yes
       - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=1111
-      - CUDA_VIsible_DEVICES=0
+      - JUPYTER_TOKEN=2222
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - TF_GPU_ALLOCATOR=cuda_malloc_async
     volumes:
       - ../:/tf/aiffel
     build:

@@ -53,7 +53,13 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN pip install nltk
 RUN pip install --upgrade notebook
 RUN pip install --upgrade jupyter-lsp
-
+RUN pip install pydot
+RUN apt install  graphviz -y
+RUN pip install seaborn
+RUN pip install matplotlib
+RUN pip install scikit-learn
+RUN apt update
+RUN apt install -y wget
 # RUN  pip install -U "jupyter-server<2.0.0"
 # RUN pip install lckr-jupyterlab-variableinspector
 #RUN pip install jupyterlab_nvdashboard
